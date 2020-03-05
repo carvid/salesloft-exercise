@@ -1,0 +1,19 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+gem 'dotenv'
+gem 'dry-system'
+gem 'dry-monads'
+gem 'rom'
+gem 'rom-sql'
+gem 'pg'
+gem 'rest-client'
+gem 'roda'
+gem 'rake'
+
+group :test do
+  gem 'rspec'
+  gem 'rack-test'
+  gem 'database_cleaner-sequel'
+end
