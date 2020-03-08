@@ -8,3 +8,11 @@ namespace :db do
     ROM::SQL::RakeSupport.env = Application['persistence.container']
   end
 end
+
+namespace :people do
+  desc 'Import people from SalesLoft API'
+  task :import do
+    import_people = Application['operations.import_people']
+    import_people.call
+  end
+end
