@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import TopMenu from '../top-menu';
 import PeopleTable from '../people-table';
 import CharsTable from '../chars-table';
+import DuplicatesTable from '../duplicates-table';
 
 const layout = (props) => (
   <div>
@@ -17,6 +18,9 @@ const layout = (props) => (
           </Route>
           <Route path="/email-chars">
             <CharsTable results={props.emailChars}/>
+          </Route>
+          <Route path="/duplicates">
+            <DuplicatesTable duplicates={props.duplicates}/>
           </Route>
           <Route exact path="/">
             <Redirect to="/people" />
