@@ -15,4 +15,10 @@ namespace :people do
     import_people = Application['operations.import_people']
     import_people.call
   end
+
+  desc 'Detect possible duplicated people'
+  task :detect_duplicates do
+    detect_duplicated_people = Application['operations.detect_duplicated_people']
+    detect_duplicated_people.call
+  end
 end
