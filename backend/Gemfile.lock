@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     concurrent-ruby (1.1.6)
+    damerau-levenshtein (1.3.2)
     database_cleaner (1.8.3)
     database_cleaner-sequel (1.8.0)
       database_cleaner (~> 1.8.0)
@@ -124,6 +125,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  damerau-levenshtein
   database_cleaner-sequel
   dotenv
   dry-monads

@@ -11,6 +11,7 @@ gem 'pg'
 gem 'rest-client'
 gem 'roda'
 gem 'rake'
+gem 'damerau-levenshtein'
 
 group :test do
   gem 'rspec'
