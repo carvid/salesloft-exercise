@@ -19,14 +19,19 @@ class LayoutContainer extends Component {
       .then(response => {
         this.setState({ emailChars: response.data });
       });
+
+    api.get('/people/duplicates')
+      .then(response => {
+        this.setState({ duplicates: response.data });
+      });
   }
 
   render() {
     const { children } = this.props;
-    const { people, emailChars } = this.state;
+    const { people, emailChars, duplicates } = this.state;
 
     return (
-      <Layout people={people} emailChars={emailChars} />
+      <Layout people={people} emailChars={emailChars} duplicates={duplicates} />
     );
   };
 }
