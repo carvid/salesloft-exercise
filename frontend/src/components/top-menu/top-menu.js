@@ -11,7 +11,7 @@ class TopMenu extends Component {
     const { active } = this.state;
 
     return(
-      <Menu>
+      <Menu inverted>
         <Menu.Item
           key='people'
           name='People'
