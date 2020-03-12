@@ -9,6 +9,7 @@ class Api < Roda
   include Import[
     'operations.retrieve_people',
     'operations.retrieve_email_characters',
+    'operations.retrieve_duplicated_people',
   ]
 
   plugin :all_verbs
@@ -30,6 +31,14 @@ class Api < Roda
         r.is do
           r.get do
             json(retrieve_email_characters.call)
+          end
+        end
+      end
+
+      r.on 'duplicates' do
+        r.is do
+          r.get do
+            json(retrieve_duplicated_people.call)
           end
         end
       end
