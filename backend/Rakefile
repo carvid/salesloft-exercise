@@ -16,6 +16,12 @@ namespace :people do
     import_people.call
   end
 
+  desc 'Updates frequency count of all unique characters from all people email addresses'
+  task :count_email_characters do
+    count_email_characters = Application['operations.count_email_characters']
+    count_email_characters.call
+  end
+
   desc 'Detect possible duplicated people'
   task :detect_duplicates do
     detect_duplicated_people = Application['operations.detect_duplicated_people']
