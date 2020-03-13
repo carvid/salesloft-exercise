@@ -32,3 +32,9 @@ namespace :people do
     detect_duplicated_people.call
   end
 end
+
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:test)
+rescue LoadError
+end
