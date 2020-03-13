@@ -1,29 +1,33 @@
-require_relative 'system/boot'
+require_relative 'system/application'
 require 'rom-sql'
 require 'rom/sql/rake_task'
 
+task :boot do
+  require_relative 'system/boot'
+end
+
 namespace :db do
   task :setup do
-    Application.start(:persistence)
-    ROM::SQL::RakeSupport.env = Application['persistence.container']
+    Application.start(:database)
+    ROM::SQL::RakeSupport.env = ROM.container(Application['database.config'])
   end
 end
 
 namespace :people do
   desc 'Import people from SalesLoft API'
-  task :import do
+  task import: :boot do
     import_people = Application['operations.import_people']
     import_people.call
   end
 
   desc 'Updates frequency count of all unique characters from all people email addresses'
-  task :count_email_characters do
+  task count_email_characters: :boot do
     count_email_characters = Application['operations.count_email_characters']
     count_email_characters.call
   end
 
   desc 'Detect possible duplicated people'
-  task :detect_duplicates do
+  task detect_duplicates: :boot do
     detect_duplicated_people = Application['operations.detect_duplicated_people']
     detect_duplicated_people.call
   end
